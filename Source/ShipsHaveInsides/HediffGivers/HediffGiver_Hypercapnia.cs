@@ -26,8 +26,9 @@ namespace RimWorld
             HediffSet hediffSet = pawn.health.hediffSet;
             Hediff firstHediffOfDef = hediffSet.GetFirstHediffOfDef(hediff);
 
-            //TODO: actually use a component on the headgear to determine time of o2
-            if (pawn?.apparel?.WornApparel?.Any(x => x.def.defName == "Apparel_PowerArmorHelmet") == true)
+            //Tags for EVA_GEAR STUFF
+            if ((pawn?.apparel?.WornApparel?.Any(x => x.def.apparel.tags.Contains("EVA_Helmet")) == true) &&
+                (pawn?.apparel?.WornApparel?.Any(x => x.def.apparel.tags.Contains("EVA_GasTank")) == true))
             {
                 if (firstHediffOfDef != null)
                 {
